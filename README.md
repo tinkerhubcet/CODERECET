@@ -1,10 +1,10 @@
 # CODERECET
 
 ## Project Repository
-*Commit and save all your changes here*
+*Commit and save your changes here*
 
 ### Team Name :
-### Team Memebers :
+### Team Members :
 ### Project Name :
 ### Tech Stack : 
 
