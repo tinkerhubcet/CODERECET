@@ -1,0 +1,29 @@
+FROM node:24-alpine AS base
+
+FROM base AS workspace
+RUN apk add --no-cache libc6-compat
+RUN corepack enable pnpm
+
+FROM workspace AS dependencies
+WORKDIR /app
+COPY . .
+RUN --mount=type=cache,target=/pnpm/store \
+    pnpm install --frozen-lockfile
+
+FROM workspace AS builder
+WORKDIR /app
+COPY . .
+COPY --from=dependencies /app/node_modules ./node_modules
+RUN pnpm --filter @rpl-erp/server build
+
+FROM base AS runner 
+WORKDIR /app
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 expressjs 
+
+COPY --from=dependencies --chown=expressjs:nodejs /app/node_modules ./node_modules
+COPY --from=builder --chown=expressjs:nodejs /app/apps/server/dist .
+
+USER expressjs
+
+CMD ["node", "index.mjs"]

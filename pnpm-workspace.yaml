@@ -1,0 +1,11 @@
+packages:
+  - packages/*
+  - apps/*
+syncInjectedDepsAfterScripts:
+- build
+injectWorkspacePackages: true
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp
+  - unrs-resolver
