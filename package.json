@@ -12,7 +12,7 @@
         "docker:dev": "docker compose --profile dev up",
         "docker:dev-client": "docker compose --profile dev up --no-deps dev-client",
         "docker:dev-server": "docker compose --profile dev up dev-server dev-db",
-        "docker:prod": "docker compose --profile prod up --build",
+        "docker:prod": "docker compose --profile prod up --build --detach",
         "docker:clean": "docker image prune -f",
         "lint": "eslint --cache --fix .",
         "format": "prettier --write --ignore-unknown .",
