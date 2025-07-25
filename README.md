@@ -5,7 +5,6 @@
 
 ### Team Name :
 ### Team Members :
-### Project Name :
 ### Project Description
 .
 .
@@ -42,7 +41,7 @@
 
 ### Screenshots (Add at least 3)
 
-## Diagrams
+### Diagrams
 Workflow(Add your workflow/architecture diagram here) Add caption explaining your workflow
 
 ## For Hardware:
