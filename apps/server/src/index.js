@@ -1,6 +1,7 @@
 import createApp from "./app.js";
 import dotenv from "dotenv";
 import { connect } from "#utils";
+import seed from "#utils";
 import { User, AuthToken } from "#models";
 
 const NODE_ENV = process.env.NODE_ENV;
