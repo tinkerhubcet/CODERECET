@@ -169,7 +169,6 @@ const getAvailableSlots = asyncErrorHandler(async (req, res) => {
  *
  * Request Body Example:
  * {
- *   "userId": 123,                           // Required: ID of the user booking
  *   "doctorId": 5,                          // Required: ID of the doctor
  *   "appointmentTime": "2024-03-15T09:00:00.000Z", // Required: ISO datetime
  *   "notes": "Regular checkup appointment"   // Optional: Additional notes
@@ -196,7 +195,8 @@ const getAvailableSlots = asyncErrorHandler(async (req, res) => {
 
 const bookAppointment = asyncErrorHandler(async (req, res) => {
     try {
-        const { userId, doctorId, appointmentTime, notes } = req.body;
+        const userId = req.user.id; // injected by authHandler
+        const { doctorId, appointmentTime, notes } = req.body;
 
         // Validate required fields
         if (!userId || !doctorId || !appointmentTime) {
@@ -357,7 +357,6 @@ const bookAppointment = asyncErrorHandler(async (req, res) => {
  * Request Body Example:
  * {
  *   "appointmentId": 456,    // Required: ID of the appointment to cancel
- *   "userId": 123           // Required: ID of the user (for authorization)
  * }
  *
  * Response Example:
@@ -376,7 +375,8 @@ const bookAppointment = asyncErrorHandler(async (req, res) => {
  */
 const cancelAppointment = asyncErrorHandler(async (req, res) => {
     try {
-        const { appointmentId, userId } = req.body;
+        const userId = req.user.id; // injected by authHandler
+        const { appointmentId } = req.body;
 
         // Validate required fields
         if (!appointmentId || !userId) {
@@ -465,7 +465,6 @@ const cancelAppointment = asyncErrorHandler(async (req, res) => {
  *
  * Request Body Example:
  * {
- *   "userId": 123,                    // Required: ID of the user
  *   "status": "SCHEDULED",           // Optional: Filter by status (SCHEDULED, COMPLETED, CANCELLED)
  *   "fromDate": "2024-03-01",       // Optional: Filter appointments from this date
  *   "toDate": "2024-03-31",         // Optional: Filter appointments until this date
@@ -503,14 +502,8 @@ const cancelAppointment = asyncErrorHandler(async (req, res) => {
  */
 const getUserAppointments = asyncErrorHandler(async (req, res) => {
     try {
-        const {
-            userId,
-            status,
-            fromDate,
-            toDate,
-            limit = 20,
-            offset = 0,
-        } = req.body;
+        const userId = req.user.id; // injected by authHandler
+        const { status, fromDate, toDate, limit = 20, offset = 0 } = req.body;
 
         // Validate required fields
         if (!userId) {
