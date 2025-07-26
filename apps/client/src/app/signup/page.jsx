@@ -23,7 +23,7 @@ const SignUp = () => {
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post("/register", { email, password });
+            const response = await api.post("/user/register", { email, password });
             console.log(response);
             alert("Signup successful! Redirecting to signin ...");
             router.push("/signin");
