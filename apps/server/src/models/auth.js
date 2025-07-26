@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
-const AuthToken = Sequelize.define("AuthToken", {
+const AuthToken = Sequelize.define("authtoken", {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -76,7 +76,6 @@ AuthToken.getRefreshToken = async (user) => {
     if (!fetchedUser?.id) {
         return new ErrorHandler(401, "No user found", null);
     }
-
     try {
         const refreshToken = uuid();
         const expiresOn = new Date(

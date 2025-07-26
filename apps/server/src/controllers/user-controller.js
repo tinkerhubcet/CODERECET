@@ -2,33 +2,6 @@ import { asyncErrorHandler, ErrorHandler } from "#middlewares";
 import { User } from "#models";
 import { Sequelize } from "#utils";
 
-const register = asyncErrorHandler(async (req, res, next) => {
-    let { email, password } = req.body;
-    const createdBy = await User.findOne({ where: { id: req.user.id } });
-    if (!createdBy) {
-        return next(
-            new ErrorHandler(401, "Guest not authorized to create user", null),
-        );
-    }
-    const user = await User.findOne({ where: { email } });
-    if (user) {
-        return next(new ErrorHandler(400, "Email already exists", null));
-    }
-    await Sequelize.transaction(async (t) => {
-        const options = {
-            createdBy,
-            transaction: t,
-        };
-        const newUser = await User.create({ email, password }, options);
-        await newUser.save();
-    });
-    res.status(201).json({
-        ok: true,
-        message: "Registered successfully",
-        data: null,
-    });
-});
-
 const getUser = asyncErrorHandler(async (req, res, next) => {
     const { id } = req.params;
     const user = await User.findOne({
@@ -120,7 +93,6 @@ const removeUser = asyncErrorHandler(async (req, res, next) => {
 });
 
 const userController = {
-    register,
     getUser,
     getUsers,
     updateUser,
