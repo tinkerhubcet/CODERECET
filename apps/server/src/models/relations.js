@@ -45,3 +45,21 @@ Medication.belongsToMany(Prescription, {
     foreignKey: "prescriptionId",
     as: "prescription",
 });
+
+// --- Medication <-> MedicationSchedule (One-to-Many) ---
+// A single medication can have multiple scheduled times (e.g., morning and night).
+Medication.hasMany(MedicationSchedule, {
+    foreignKey: {
+        name: "medicationId",
+        type: DataTypes.UUID,
+        allowNull: false,
+    },
+    as: "schedules",
+    onDelete: "CASCADE", // If a medication is deleted, delete its schedules
+});
+// Each schedule entry belongs to one specific medication.
+// This is the correct relationship, ensuring schedules are tied to the medication itself.
+MedicationSchedule.belongsTo(Medication, {
+    foreignKey: "medicationId",
+    as: "medication",
+});
