@@ -43,8 +43,7 @@ const register = asyncErrorHandler(async (req, res) => {
         return next(new ErrorHandler(400, "email already exists", null));
     }
     const newUser = await User.create({ email, password });
-    const candidateRole = await Role.findOne({ where: { role: "candidate" } });
-    await newUser.addRole(candidateRole);
+    await newUser.save();
     res.status(201).json({
         ok: true,
         message: "Registered successfully",
