@@ -88,3 +88,48 @@ python app.py
 cd frontend
 npm install
 npm run dev
+```
+
+### Screenshots (Add at least 3)
+
+1. ![Dashboard - Choose Your Path](https://via.placeholder.com/800x450.png?text=Dashboard+View)  
+   *Caption: Main dashboard allowing users to choose between "Boost My Grades" (XMAI) or "Build My Career" (Navigator).*
+
+2. ![PYQ Solver](https://via.placeholder.com/800x450.png?text=PYQ+Solver+Interface)  
+   *Caption: User uploads a PDF of previous year questions and receives step-by-step AI-generated solutions.*
+
+3. ![Career Analysis Result](https://via.placeholder.com/800x450.png?text=Career+Insights+from+Gemini)  
+   *Caption: Gemini AI analyzing resume + GitHub and generating skill gap and career roadmap.*
+
+---
+
+### Diagrams
+
+#### Workflow (Architecture Diagram)
+
+![Workflow Architecture](https://via.placeholder.com/800x450.png?text=Workflow+Diagram+Coming+Soon)  
+
+
+
+### Project Demo
+
+### Video
+
+[https://youtu.be/sample-demo-link](https://youtu.be/sample-demo-link)  
+
+
+## Team Contributions
+
+**Deva Nanda Nair:**    
+- Core backend logic and integration with Together AI
+- Flask endpoints and Gemini integration
+
+**Shreya R S:**  
+- Career Navigator logic 
+- EXAM AI  Wing Setup
+
+**Swathi H Nair:**  
+- Frontend design and implementation (Svelte, Astro, Tailwind)  
+ 
+
+
