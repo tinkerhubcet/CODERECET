@@ -8,7 +8,7 @@
         "dev:server": "pnpm --filter @vitalis/server dev",
         "build:client": "pnpm --filter @vitalis/client build",
         "build:server": "pnpm --filter @vitalis/server build",
-        "test": "pnpm --filter @vitalis/server test",
+        "test:server": "pnpm --filter @vitalis/server test",
         "docker:dev": "docker compose --profile dev up",
         "docker:dev-client": "docker compose --profile dev up --no-deps dev-client",
         "docker:dev-server": "docker compose --profile dev up dev-server dev-db",

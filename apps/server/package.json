@@ -5,7 +5,8 @@
     "type": "module",
     "main": "./dist/index.mjs",
     "scripts": {
-        "dev": "nodemon src/index.js"
+        "dev": "nodemon src/index.js",
+        "test": "vitest"
     },
     "imports": {
         "#*": "./src/*",
