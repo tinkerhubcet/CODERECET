@@ -1,4 +1,4 @@
-# AGENTS.md - Elderly Wellness Agentic AI Solution
+# Elderly Wellness Agentic AI Solution
 
 ## Overview
 
