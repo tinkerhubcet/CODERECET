@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { useState } from 'react';
+import { useRouter } from "next/navigation";
 import { 
   Heart, 
   Calendar, 
@@ -21,6 +22,7 @@ import {
 
 function Landing() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router=useRouter();
 
   const features = [
     {
@@ -82,7 +84,10 @@ function Landing() {
               <a href="#features" className="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-blue-600 transition-colors">How It Works</a>
               <a href="#benefits" className="text-gray-600 hover:text-blue-600 transition-colors">Benefits</a>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <button 
+                onClick={() => router.push('/signin')}
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
                 Get Started
               </button>
             </nav>
@@ -103,7 +108,10 @@ function Landing() {
                 <a href="#features" className="text-gray-600 hover:text-blue-600">Features</a>
                 <a href="#how-it-works" className="text-gray-600 hover:text-blue-600">How It Works</a>
                 <a href="#benefits" className="text-gray-600 hover:text-blue-600">Benefits</a>
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-full">
+                <button 
+                  onClick={() => router.push('/signin')}
+                  className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors w-full"
+                >
                   Get Started
                 </button>
               </div>
@@ -126,7 +134,10 @@ function Landing() {
                 Comprehensive virtual care assistant that helps elderly individuals maintain their wellness through intelligent automation, health monitoring, and emergency response systems.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-center">
+                <button 
+                  onClick={() => router.push('/signin')}
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-center"
+                >
                   Start Free Trial
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </button>
@@ -332,7 +343,10 @@ function Landing() {
             Join thousands of families who trust Vitalis for comprehensive wellness management and peace of mind.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105">
+            <button 
+              onClick={() => router.push('/signin')}
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105"
+            >
               Start 30-Day Free Trial
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-all">
