@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LoginForm from '../components/Loginform.svelte';
+---
+
+<Layout 
+  title="Login | Padhik"
+  bodyClass="min-h-screen font-inter relative overflow-hidden"
+>
+  <!-- Background image layer with blur -->
+  <div 
+    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1470&q=80')] 
+           bg-cover bg-center bg-no-repeat 
+           before:absolute before:inset-0 before:bg-black/40 before:backdrop-blur-md"
+  ></div>
+
+  <!-- Curved white section for mobile (optional aesthetic) -->
+  <div class="absolute top-0 left-0 right-0 h-1/2 bg-white rounded-b-full transform scale-x-150 origin-top md:hidden z-10"></div>
+
+  <!-- Main Login Form -->
+  <main class="relative z-20 w-full flex justify-center items-center min-h-screen px-4">
+    <LoginForm client:load />
+  </main>
+</Layout>

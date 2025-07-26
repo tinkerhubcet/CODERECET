@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SignupForm from '../components/SignupForm.svelte';
+---
+
+<Layout 
+  title="Sign Up | Padhik"
+  bodyClass="min-h-screen font-inter relative overflow-hidden"
+>
+  <!-- Background image layer with blur -->
+  <div 
+    class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1470&q=80')] 
+           bg-cover bg-center bg-no-repeat 
+           before:absolute before:inset-0 before:bg-black/40 before:backdrop-blur-md"
+  ></div>
+
+  <!-- Main Signup Form -->
+  <main class="relative z-20 w-full flex items-center justify-center min-h-screen px-4">
+    <SignupForm client:load />
+  </main>
+</Layout>

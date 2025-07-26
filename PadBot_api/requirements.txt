@@ -1,0 +1,7 @@
+Flask
+PyMuPDF
+langchain
+langchain-community
+langchain-together
+chromadb
+python-dotenv  
