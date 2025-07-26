@@ -4,6 +4,7 @@ import {
     Prescription,
     Medication,
     MedicationSchedule,
+    File,
 } from "#models";
 import { DataTypes } from "sequelize";
 

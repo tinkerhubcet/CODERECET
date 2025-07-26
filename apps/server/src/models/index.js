@@ -6,12 +6,18 @@ import Specialization from "./specialization.js";
 import DoctorSchedule from "./doctor-schedule.js";
 import Appointment from "./appointment.js";
 import File from "./file.js";
+import Medication from "./medication.js";
+import MedicationSchedule from "./medication-schedule.js";
+import Prescription from "./prescription.js";
 
 import "./relations.js";
 
 export {
     User,
     AuthToken,
+    MedicationSchedule,
+    Prescription,
+    Medication,
     File,
     Hospital,
     Doctor,

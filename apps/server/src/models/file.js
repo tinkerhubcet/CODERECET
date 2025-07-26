@@ -1,6 +1,6 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from "#utils";
 import { v4 as uuid } from "uuid";
-
+import { DataTypes } from "sequelize";
 const File = Sequelize.define("file", {
     id: {
         type: DataTypes.UUID,

@@ -1,4 +1,5 @@
 import { Sequelize } from "#utils";
+import { DataTypes } from "sequelize";
 
 export default Sequelize.define("Prescription", {
     id: {
