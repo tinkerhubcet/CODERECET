@@ -12,9 +12,13 @@ const uploadFile = asyncErrorHandler(async (req, res, next) => {
     if (!file) {
         return next(new ErrorHandler(400, "File not provided", null));
     }
+    let { originalname } = file;
+
+    const newName = `${uuid()}.${getFileExtension(originalname)}`;
+
     const uploadParams = {
         Bucket: bucketName,
-        Key: file.originalName,
+        Key: newName,
         Body: file.buffer,
     };
     let data;
@@ -29,10 +33,7 @@ const uploadFile = asyncErrorHandler(async (req, res, next) => {
                     createdBy,
                     transaction: t,
                 };
-                const newFile = await File.create(
-                    { name: file.originalName },
-                    options,
-                );
+                const newFile = await File.create({ name: newName }, options);
                 await newFile.save();
             });
             data = fileData;
