@@ -10,6 +10,7 @@ import {
     Hospital,
     UserDoctor,
     DoctorHospital,
+    Specialization,
 } from "#models";
 
 // --- User <-> AuthToken (One-to-One) ---
@@ -140,4 +141,14 @@ Hospital.belongsToMany(Doctor, {
     foreignKey: "hospitalId",
     otherKey: "doctorId",
     as: "affiliatedDoctors",
+});
+
+// --- Specialization <-> Doctor (One-to-Many) ---
+Specialization.hasMany(Doctor, {
+    foreignKey: "specializationId",
+    as: "doctors",
+});
+Doctor.belongsTo(Specialization, {
+    foreignKey: "specializationId",
+    as: "specialization",
 });

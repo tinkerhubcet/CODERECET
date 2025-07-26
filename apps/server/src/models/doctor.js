@@ -11,7 +11,7 @@ export default Sequelize.define(
         },
         name: { type: DataTypes.STRING, allowNull: false },
         qualifications: { type: DataTypes.STRING },
-        // hospital_id is added via association in models/index.js
+        // hospital_id and specialization_id are added via association
     },
     { tableName: "doctors", timestamps: true },
 );
