@@ -13,6 +13,11 @@ await User.hasOne(AuthToken, {
     unique: true,
 });
 
+await User.hasMany(File, {
+    foreignKey: "userId",
+    type: DataTypes.UUID,
+});
+
 // --- User <-> Prescription (One-to-Many) ---
 // A user can have many prescriptions.
 User.hasMany(Prescription, {
