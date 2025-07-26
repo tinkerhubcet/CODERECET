@@ -1,5 +1,6 @@
 import express from "express";
-import specializationController from "#controllers";
+import { specializationController } from "#controllers";
+import { authHandler } from "#middlewares";
 
 const {
     getAllSpecializations,
@@ -27,32 +28,11 @@ router.post("/all", getAllSpecializations);
 router.post("/:id", getSpecializationById);
 
 /**
- * @route   POST /api/specializations
- * @desc    Create a new specialization
- * @access  Private (Admin only - add auth middleware)
- */
-router.post("/", createSpecialization);
-
-/**
- * @route   PUT /api/specializations/:id
- * @desc    Update an existing specialization
- * @access  Private (Admin only - add auth middleware)
- */
-router.put("/:id", updateSpecialization);
-
-/**
- * @route   DELETE /api/specializations/:id
- * @desc    Delete a specialization
- * @access  Private (Admin only - add auth middleware)
- */
-router.delete("/:id", deleteSpecialization);
-
-/**
  * @route   POST /api/specializations/available
  * @desc    Get specializations with available doctors for appointment booking
  * @access  Public
  */
-router.post("/available", getAvailableSpecializations);
+router.post("/available", authHandler, getAvailableSpecializations);
 
 // Export the router
-export { router as specializationRouter };
+export default router;
