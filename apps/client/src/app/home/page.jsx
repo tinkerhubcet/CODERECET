@@ -77,7 +77,7 @@ export default function HomePage() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
                 <Shield className="h-5 w-5 text-green-500" />
-                <span className="text-sm text-gray-600 hidden sm:block">HIPAA Compliant</span>
+                {/* <span className="text-sm text-gray-600 hidden sm:block">HIPAA Compliant</span> */}
               </div>
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                 <User className="h-5 w-5 text-blue-600" />
