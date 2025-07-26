@@ -1,0 +1,44 @@
+{
+    "name": "@vitalis/server",
+    "version": "0.1.0",
+    "description": "",
+    "type": "module",
+    "main": "./dist/index.mjs",
+    "scripts": {
+        "dev": "nodemon src/index.js",
+        "test": "vitest"
+    },
+    "imports": {
+        "#*": "./src/*",
+        "#app": "./src/app.js",
+        "#middlewares": "./src/middlewares/index.js",
+        "#controllers": "./src/controllers/index.js",
+        "#routes": "./src/routes/index.js",
+        "#models": "./src/models/index.js",
+        "#utils": "./src/utils/index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.13.1",
+    "devDependencies": {
+        "nodemon": "^3.1.10",
+        "supertest": "^7.1.4"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.1692.0",
+        "bcryptjs": "^3.0.2",
+        "body-parser": "^2.2.0",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.0",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "multer": "^2.0.2",
+        "pg": "^8.16.3",
+        "pg-hstore": "^2.3.4",
+        "sequelize": "^6.37.7",
+        "uuid": "^11.1.0",
+        "winston": "^3.17.0"
+    }
+}

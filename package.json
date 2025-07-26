@@ -1,0 +1,46 @@
+{
+    "name": "vitalis",
+    "version": "0.1.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "dev:client": "pnpm --filter @vitalis/client dev",
+        "dev:server": "pnpm --filter @vitalis/server dev",
+        "build:client": "pnpm --filter @vitalis/client build",
+        "build:server": "pnpm --filter @vitalis/server build",
+        "test:server": "pnpm --filter @vitalis/server test",
+        "docker:dev": "docker compose --profile dev up",
+        "docker:dev-client": "docker compose --profile dev up --no-deps dev-client",
+        "docker:dev-server": "docker compose --profile dev up dev-server dev-db",
+        "docker:prod": "docker compose --profile prod up --build --detach",
+        "docker:clean": "docker image prune -f",
+        "lint": "eslint --cache --fix .",
+        "format": "prettier --write --ignore-unknown .",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "eslint --cache --fix",
+            "prettier --write --ignore-unknown"
+        ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "packageManager": "pnpm@10.13.1",
+    "devDependencies": {
+        "@eslint/eslintrc": "^3.3.1",
+        "@eslint/js": "^9.31.0",
+        "eslint": "^9.31.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.5.1",
+        "globals": "^16.3.0",
+        "husky": "^8.0.0",
+        "lint-staged": "^16.1.2",
+        "prettier": "^3.6.2",
+        "vitest": "^3.2.4"
+    },
+    "dependencies": {
+        "zod": "^4.0.5"
+    }
+}
