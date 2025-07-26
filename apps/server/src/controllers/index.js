@@ -4,6 +4,7 @@ import appointmentController from "./appointment-controller.js";
 import doctorController from "./doctor-controller.js";
 import fileController from "./file-controller.js";
 import prescriptionController from "./prescription-controller.js";
+import specializationController from "./specialization-controller.js";
 
 export {
     userController,
@@ -12,4 +13,5 @@ export {
     appointmentController,
     doctorController,
     fileController,
+    specializationController,
 };

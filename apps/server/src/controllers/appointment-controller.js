@@ -1,5 +1,5 @@
 import { Op } from "sequelize";
-import { ErrorHandler, AsyncErrorHandler } from "#utils";
+import { asyncErrorHandler } from "#middlewares";
 import {
     Appointment,
     Doctor,
@@ -43,7 +43,7 @@ import {
  *   ]
  * }
  */
-const getAvailableSlots = AsyncErrorHandler(async (req, res) => {
+const getAvailableSlots = asyncErrorHandler(async (req, res) => {
     try {
         const { date, specializationId, doctorId, hospitalId } = req.body;
 
@@ -194,7 +194,7 @@ const getAvailableSlots = AsyncErrorHandler(async (req, res) => {
  * }
  */
 
-const bookAppointment = AsyncErrorHandler(async (req, res) => {
+const bookAppointment = asyncErrorHandler(async (req, res) => {
     try {
         const { userId, doctorId, appointmentTime, notes } = req.body;
 
@@ -374,7 +374,7 @@ const bookAppointment = AsyncErrorHandler(async (req, res) => {
  *   "message": "Appointment cancelled successfully"
  * }
  */
-const cancelAppointment = AsyncErrorHandler(async (req, res) => {
+const cancelAppointment = asyncErrorHandler(async (req, res) => {
     try {
         const { appointmentId, userId } = req.body;
 
@@ -501,7 +501,7 @@ const cancelAppointment = AsyncErrorHandler(async (req, res) => {
  *   }
  * }
  */
-const getUserAppointments = AsyncErrorHandler(async (req, res) => {
+const getUserAppointments = asyncErrorHandler(async (req, res) => {
     try {
         const {
             userId,
