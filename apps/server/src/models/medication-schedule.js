@@ -12,9 +12,10 @@ export default Sequelize.define(
         // Describes how often the medication should be taken
         frequency: {
             type: DataTypes.ENUM(
-                "Daily",
-                "Twice a day",
-                "On alternate days",
+                "Once daily",
+                "Twice daily",
+                "Three times daily",
+                "Every other day",
                 "Weekly",
                 "As needed",
             ),
