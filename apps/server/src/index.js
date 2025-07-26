@@ -11,8 +11,8 @@ dotenv.config({ path: ENV_PATH });
 
 const { PORT } = process.env;
 
-connect();
-seed();
+await connect();
+await seed();
 const app = createApp();
 
 app.listen({ port: PORT }, () => {
