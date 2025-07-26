@@ -9,6 +9,8 @@ import File from "./file.js";
 import Medication from "./medication.js";
 import MedicationSchedule from "./medication-schedule.js";
 import Prescription from "./prescription.js";
+import DoctorHospital from "./doctor-hospital.js";
+import UserDoctor from "./user-doctor.js";
 
 import "./relations.js";
 
@@ -24,4 +26,6 @@ export {
     Specialization,
     DoctorSchedule,
     Appointment,
+    DoctorHospital,
+    UserDoctor,
 };
