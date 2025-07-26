@@ -4,12 +4,6 @@ import { Sequelize } from "#utils";
 
 const register = asyncErrorHandler(async (req, res, next) => {
     let { email, password } = req.body;
-    const createdBy = await User.findOne({ where: { id: req.user.id } });
-    if (!createdBy) {
-        return next(
-            new ErrorHandler(401, "Guest not authorized to create user", null),
-        );
-    }
     const user = await User.findOne({ where: { email } });
     if (user) {
         return next(new ErrorHandler(400, "Email already exists", null));
