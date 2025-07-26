@@ -9,6 +9,7 @@ import {
     fileRouter,
     appointmentRouter,
     doctorRouter,
+    prescriptionRouter,
 } from "#routes";
 import { authHandler } from "#middlewares";
 

@@ -35,7 +35,7 @@ export default function HomePage() {
     { id: 'dashboard', icon: Home, label: 'Dashboard' },
     // { id: 'chat', icon: MessageCircle, label: 'Chat Assistant' },
     { id: 'appointments', icon: Calendar, label: 'Appointments' },
-    { id: 'medications', icon: Pill, label: 'Medications' },
+    { id: 'medications', icon: Pill, label: 'Prescriptions' },
     { id: 'health', icon: Activity, label: 'Health Tracking' },
     { id: 'reports', icon: FileText, label: 'Reports' },
     { id: 'notifications', icon: Bell, label: 'Notifications' },
@@ -68,7 +68,7 @@ export default function HomePage() {
               >
                 {isSidebarOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
-              <div className="bg-blue-600 p-2 rounded-lg">
+              <div className ="bg-blue-600 p-2 rounded-lg">
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <span className="text-2xl font-bold text-gray-900">Vitalis</span>
@@ -115,17 +115,7 @@ export default function HomePage() {
             })}
           </nav>
         </div>
-
-        {/* Sidebar Footer */}
-        <div className="absolute bottom-6 left-6 right-6">
-          <div className="bg-blue-50 p-4 rounded-lg">
-            <div className="flex items-center mb-2">
-              <Heart className="h-5 w-5 text-blue-600 mr-2" />
-              <span className="font-semibold text-gray-900 text-sm">Health Status</span>
-            </div>
-            <p className="text-green-600 text-sm font-medium">All systems normal</p>
-          </div>
-        </div>
+        
       </aside>
 
       {/* Overlay for mobile */}
