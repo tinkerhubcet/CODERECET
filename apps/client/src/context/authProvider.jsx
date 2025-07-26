@@ -1,3 +1,4 @@
+'use client'
 import React, {
   createContext,
   useContext,
@@ -6,12 +7,12 @@ import React, {
 } from "react";
 import { jwtDecode } from "jwt-decode";
 import api from "@/services/api";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const authContext = createContext();
 
 export default function AuthProvider({ children }) {
-  const navigate = useNavigate();
+  const router=useRouter();
 
   const extractInfo = (token) => {
     const decoded = jwtDecode(token);
@@ -22,10 +23,7 @@ export default function AuthProvider({ children }) {
     };
   };
 
-  const [auth, setAuth] = useState(() => {
-    const token = localStorage.getItem("token");
-    return token ? extractInfo(token) : null;
-  });
+  const [auth, setAuth] = useState();
 
   useLayoutEffect(() => {
     const authInterceptor = api.interceptors.request.use((config) => {
@@ -45,6 +43,8 @@ export default function AuthProvider({ children }) {
   }, [auth]);
 
   useLayoutEffect(() => {
+    const token = localStorage.getItem("token");
+    setAuth(token ? extractInfo(token) : null);
     const refreshInterceptor = api.interceptors.response.use(
       (response) => response,
       async (error) => {
@@ -90,7 +90,7 @@ export default function AuthProvider({ children }) {
 
   const logout = () => {
     setAuth(null);
-    navigate("/signin");
+    router.push("/signin");
     localStorage.clear();
   };
 

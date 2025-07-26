@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/authProvider";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/authProvider";
 import {
   Card,
   CardHeader,
@@ -14,13 +14,14 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Mail, Lock } from "lucide-react";
-import api from "../services/api";
+import api from "@/services/api";
 import { jwtDecode } from "jwt-decode";
+
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+      const router = useRouter();
   const { login } = useUser();
 
   const extractInfo = (token) => {
@@ -43,7 +44,7 @@ const SignIn = () => {
       if (response.status === 200) {
         const userData = response.data.data;
         login(userData.accessToken);
-        navigate('/home');
+        router.push('/home')
        
       }
     } catch (error) {
