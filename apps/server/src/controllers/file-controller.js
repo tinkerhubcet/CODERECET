@@ -24,11 +24,13 @@ const uploadFile = asyncErrorHandler(async (req, res, next) => {
     let { originalname } = file;
 
     const newName = `${uuid()}.${getFileExtension(originalname)}`;
+    file.originalname = newName;
 
     const uploadParams = {
         Bucket: bucketName,
         Key: newName,
         Body: file.buffer,
+        ContentType: file.mimetype,
     };
     let data;
 
