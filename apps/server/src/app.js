@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import { authRouter, userRouter, fileRouter, appointmentRouter } from "#routes";
+import { authRouter, userRouter, fileRouter, appointmentRouter, doctorRouter } from "#routes";
 
 export default function createApp() {
     const app = express();
@@ -26,7 +26,7 @@ export default function createApp() {
     apiV1Router.use("/user", userRouter);
     apiV1Router.use("/file", fileRouter);
     apiV1Router.use("/appointment", appointmentRouter);
-
+    apiV1Router.use("/doctor", doctorRouter);
     app.use("/api/v1", apiV1Router);
     return app;
 }
