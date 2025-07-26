@@ -24,7 +24,7 @@ const User = Sequelize.define("user", {
         type: DataTypes.STRING,
         notNull: true,
         set(value) {
-            setDataValue("password", bcrypt.hash(value));
+            this.setDataValue("password", bcrypt.hash(value));
         },
     },
 });
