@@ -33,7 +33,10 @@ const uploadFile = asyncErrorHandler(async (req, res, next) => {
                     createdBy,
                     transaction: t,
                 };
-                const newFile = await File.create({ name: newName }, options);
+                const newFile = await File.create(
+                    { name: newName, userId: req.user.id },
+                    options,
+                );
                 await newFile.save();
             });
             data = fileData;
