@@ -8,7 +8,6 @@ export default defineConfig([
         "apps/**/eslint.config.mjs",
         "apps/**/postcss.config.mjs",
         "**/*.config.mjs",
-        "**/*.js",
     ]),
     {
         languageOptions: {

@@ -52,20 +52,20 @@ services:
 
   # production containers
 
-  prod-client:
-    profiles:
-      - prod
-    build:
-      context: .
-      dockerfile: ./apps/client/Dockerfile.prod
-    env_file:
-      - ./apps/client/.env.prod
-    ports:
-      - "${PROD_CLIENT_PORT}:${PROD_CLIENT_PORT}"
-    networks:
-      - prod-network
-    depends_on:
-      - prod-server
+  # prod-client:
+  #   profiles:
+  #     - prod
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/client/Dockerfile.prod
+  #   env_file:
+  #     - ./apps/client/.env.prod
+  #   ports:
+  #     - "${PROD_CLIENT_PORT}:${PROD_CLIENT_PORT}"
+  #   networks:
+  #     - prod-network
+  #   depends_on:
+  #     - prod-server
   prod-server:
     profiles:
       - prod

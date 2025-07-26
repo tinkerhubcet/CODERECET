@@ -5,14 +5,25 @@
     "type": "module",
     "main": "./dist/index.mjs",
     "scripts": {
-        "dev": "nodemon src/index.js"
+        "dev": "nodemon src/index.js",
+        "test": "vitest"
+    },
+    "imports": {
+        "#*": "./src/*",
+        "#app": "./src/app.js",
+        "#middlewares": "./src/middlewares/index.js",
+        "#controllers": "./src/controllers/index.js",
+        "#routes": "./src/routes/index.js",
+        "#models": "./src/models/index.js",
+        "#utils": "./src/utils/index.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "packageManager": "pnpm@10.13.1",
     "devDependencies": {
-        "nodemon": "^3.1.10"
+        "nodemon": "^3.1.10",
+        "supertest": "^7.1.4"
     },
     "dependencies": {
         "bcryptjs": "^3.0.2",
@@ -22,6 +33,7 @@
         "pg": "^8.16.3",
         "pg-hstore": "^2.3.4",
         "sequelize": "^6.37.7",
+        "uuid": "^11.1.0",
         "winston": "^3.17.0"
     }
 }
