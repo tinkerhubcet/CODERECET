@@ -3,7 +3,10 @@ import dotenv from "dotenv";
 import { connect } from "#utils";
 import { User, AuthToken } from "#models";
 
-dotenv.config({ path: ".env.dev" });
+const NODE_ENV = process.env.NODE_ENV;
+const ENV_PATH = NODE_ENV === "production" ? ".env.prod" : ".env.dev";
+
+dotenv.config({ path: ENV_PATH });
 
 const { PORT } = process.env;
 
