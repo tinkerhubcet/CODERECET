@@ -18,7 +18,7 @@ import {
 
 // Import all split components
 import DashboardComponent from '@/components/dashboard/DashboardComponent';
-import ChatPageComponent from '@/components/chat/ChatPageComponent';
+// import ChatPageComponent from '@/components/chat/ChatPageComponent';
 import AppointmentsComponent from '@/components/appointments/AppointmentsComponent';
 import MedicationsComponent from '@/components/medications/MedicationsComponent';
 import HealthTrackingComponent from '@/components/health/HealthTrackingComponent';
@@ -33,7 +33,7 @@ export default function HomePage() {
 
   const sidebarItems = [
     { id: 'dashboard', icon: Home, label: 'Dashboard' },
-    { id: 'chat', icon: MessageCircle, label: 'Chat Assistant' },
+    // { id: 'chat', icon: MessageCircle, label: 'Chat Assistant' },
     { id: 'appointments', icon: Calendar, label: 'Appointments' },
     { id: 'medications', icon: Pill, label: 'Medications' },
     { id: 'health', icon: Activity, label: 'Health Tracking' },
@@ -45,7 +45,7 @@ export default function HomePage() {
 
   const components = {
     dashboard: <DashboardComponent />,
-    chat: <ChatPageComponent />,
+    // chat: <ChatPageComponent />,
     appointments: <AppointmentsComponent />,
     medications: <MedicationsComponent />,
     health: <HealthTrackingComponent />,
