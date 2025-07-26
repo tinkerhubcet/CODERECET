@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
+import { Sequelize } from "#utils";
 
-export default sequelize.define(
+export default Sequelize.define(
     "Hospital",
     {
         id: {
