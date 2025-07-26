@@ -24,9 +24,13 @@ const User = Sequelize.define("user", {
         type: DataTypes.STRING,
         notNull: true,
         set(value) {
-            this.setDataValue("password", bcrypt.hash(value));
+            this.setDataValue("password", bcrypt.hash(value, 10));
         },
     },
 });
+
+User.prototype.comparePassword = function (user, password) {
+    return bcrypt.compare(password, user.password);
+};
 
 export default User;
