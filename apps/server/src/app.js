@@ -9,7 +9,9 @@ export default function createApp() {
     app.use(
         cors({
             origin: "*",
-            methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+            credentials: true,
+            methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+            allowedHeaders: ["Content-Type", "Authorization"],
         }),
     );
 
