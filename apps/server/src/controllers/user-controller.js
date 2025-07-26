@@ -10,7 +10,6 @@ const register = asyncErrorHandler(async (req, res, next) => {
     }
     await Sequelize.transaction(async (t) => {
         const options = {
-            createdBy,
             transaction: t,
         };
         const newUser = await User.create({ email, password }, options);
