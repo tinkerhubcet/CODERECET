@@ -8,7 +8,13 @@
         "dev": "nodemon src/index.js"
     },
     "imports": {
-        "#*": "./src/*"
+        "#*": "./src/*",
+        "#app": "./src/app.js",
+        "#middlewares": "./src/middlewares/index.js",
+        "#controllers": "./src/controllers/index.js",
+        "#routes": "./src/routes/index.js",
+        "#models": "./src/models/index.js",
+        "#utils": "./src/utils/index.js"
     },
     "keywords": [],
     "author": "",

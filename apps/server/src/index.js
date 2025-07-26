@@ -1,6 +1,6 @@
 import createApp from "./app.js";
 import dotenv from "dotenv";
-import { connect } from "./utils/connect.js";
+import { connect } from "#utils";
 
 dotenv.config({ path: ".env.dev" });
 
