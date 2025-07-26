@@ -10,6 +10,7 @@ import {
     Hospital,
     UserDoctor,
     DoctorHospital,
+    DoctorSchedule,
     Specialization,
 } from "#models";
 
@@ -133,6 +134,13 @@ Doctor.belongsToMany(Hospital, {
     otherKey: "hospitalId",
     as: "hospitals",
 });
+
+Doctor.hasOne(DoctorSchedule, {
+    foreignKey: "doctorId",
+    as: "schedule",
+    onDelete: "CASCADE",
+});
+
 Hospital.belongsToMany(Doctor, {
     through: {
         model: DoctorHospital,
