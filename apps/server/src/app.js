@@ -3,12 +3,11 @@ import { authRouter, userRouter } from "#routes";
 
 export default function createApp() {
     const app = express();
-    app.use("/auth", authRouter);
-    app.use("/user", userRouter);
+    const apiV1Router = express.Router();
 
-    app.get("/", (req, res) => {
-        res.send("Hello World!");
-    });
+    apiV1Router.use("/auth", authRouter);
+    apiV1Router.use("/user", userRouter);
 
+    app.use("/api/v1", apiV1Router);
     return app;
 }
