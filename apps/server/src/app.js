@@ -1,12 +1,21 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 
-import { authRouter, userRouter, fileRouter, appointmentRouter, doctorRouter } from "#routes";
+import {
+    authRouter,
+    userRouter,
+    fileRouter,
+    appointmentRouter,
+    doctorRouter,
+} from "#routes";
+import { authHandler } from "#middlewares";
 
 export default function createApp() {
     const app = express();
     app.use(bodyParser.json());
+    app.use(cookieParser());
 
     app.use(
         cors({
@@ -23,10 +32,11 @@ export default function createApp() {
     const apiV1Router = express.Router();
 
     apiV1Router.use("/auth", authRouter);
-    apiV1Router.use("/user", userRouter);
-    apiV1Router.use("/file", fileRouter);
-    apiV1Router.use("/appointment", appointmentRouter);
-    apiV1Router.use("/doctor", doctorRouter);
+    apiV1Router.use("/user", authHandler, userRouter);
+    apiV1Router.use("/file", authHandler, fileRouter);
+    apiV1Router.use("/appointment", authHandler, appointmentRouter);
+    apiV1Router.use("/doctor", authHandler, doctorRouter);
+
     app.use("/api/v1", apiV1Router);
     return app;
 }

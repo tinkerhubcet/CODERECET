@@ -1,10 +1,19 @@
-import { asyncErrorHandler, ErrorHandler } from "#middlewares";
+import path from "path";
+import { v4 as uuid } from "uuid";
+
 import { User, File } from "#models";
-import { Sequelize } from "#utils";
+import { Sequelize, S3 } from "#utils";
+import { asyncErrorHandler, ErrorHandler } from "#middlewares";
 
 const uploadFile = asyncErrorHandler(async (req, res, next) => {
-    const bucketName = "vitalis-arkway";
+    const bucketName = "vitalis-arkway/Prescription";
     const file = req.file;
+    const s3 = S3();
+
+    const getFileExtension = (filename) => {
+        return path.extname(filename).split(".")[1];
+    };
+
     const user = await User.findOne({ where: { id: req.user.id } });
     if (!user) {
         return next(new ErrorHandler(403, "User not found", null));
@@ -23,30 +32,33 @@ const uploadFile = asyncErrorHandler(async (req, res, next) => {
     };
     let data;
 
-    s3.upload(uploadParams, async function (err, fileData) {
-        if (err) {
-            return next(new ErrorHandler(500, "File upload failed", err));
-        }
-        if (data) {
-            await Sequelize.transaction(async (t) => {
-                const options = {
-                    createdBy,
-                    transaction: t,
-                };
-                const newFile = await File.create(
-                    { name: newName, userId: req.user.id },
-                    options,
-                );
-                await newFile.save();
-            });
-            data = fileData;
-        }
+    await Sequelize.transaction(async (t) => {
+        const fileData = await s3.upload(uploadParams).promise();
+        const options = {
+            transaction: t,
+        };
+        const newFile = await File.create(
+            {
+                name: newName,
+                url: fileData.Location,
+                key: fileData.key,
+                userId: req.user.id,
+                bucket: bucketName,
+            },
+            options,
+        );
+        data = fileData;
+        await newFile.save();
     });
     res.status(201).json({
         ok: true,
-        message: "Registered successfully",
+        message: "File uploaded successfully",
         data,
     });
 });
 
-export default { uploadFile };
+const getFile = asyncErrorHandler(async (req, res, next) => {
+    return res.status(200).json({ message: "hello world" });
+});
+
+export default { uploadFile, getFile };

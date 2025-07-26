@@ -13,6 +13,18 @@ const File = Sequelize.define("file", {
         unique: true,
         notNull: true,
     },
+    url: {
+        type: DataTypes.TEXT, // Use TEXT for URLs as they can be long
+        allowNull: true,
+    },
+    key: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    bucket: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
 });
 
 export default File;

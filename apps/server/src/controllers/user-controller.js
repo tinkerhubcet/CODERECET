@@ -83,7 +83,6 @@ const removeUser = asyncErrorHandler(async (req, res, next) => {
     if (!user) {
         return next(new ErrorHandler(404, "User not found", null));
     }
-    console.log(user);
     await user.destroy();
     return res.json({
         ok: true,
