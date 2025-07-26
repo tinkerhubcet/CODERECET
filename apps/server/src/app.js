@@ -1,10 +1,12 @@
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 
 import { authRouter, userRouter } from "#routes";
 
 export default function createApp() {
     const app = express();
+    app.use(bodyParser.json());
 
     app.use(
         cors({
