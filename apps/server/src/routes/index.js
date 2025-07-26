@@ -4,6 +4,7 @@ import doctorRouter from "./doctor-router.js";
 import appointmentRouter from "./appointment-router.js";
 import fileRouter from "./file-router.js";
 import prescriptionRouter from "./prescription-router.js";
+import specializationRouter from "./specialization-router.js";
 
 export {
     authRouter,
@@ -12,4 +13,5 @@ export {
     appointmentRouter,
     fileRouter,
     prescriptionRouter,
+    specializationRouter,
 };

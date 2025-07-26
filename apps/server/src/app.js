@@ -10,6 +10,7 @@ import {
     appointmentRouter,
     doctorRouter,
     prescriptionRouter,
+    specializationRouter,
 } from "#routes";
 import { authHandler } from "#middlewares";
 
@@ -36,8 +37,9 @@ export default function createApp() {
     apiV1Router.use("/user", authHandler, userRouter);
     apiV1Router.use("/file", authHandler, fileRouter);
     apiV1Router.use("/appointment", authHandler, appointmentRouter);
-    apiV1Router.use("/doctor", authHandler, doctorRouter);
     apiV1Router.use("/prescription", authHandler, prescriptionRouter);
+    apiV1Router.use("/doctor", authHandler, doctorRouter);
+    apiV1Router.use("/specialization", specializationRouter);
 
     app.use("/api/v1", apiV1Router);
     return app;
