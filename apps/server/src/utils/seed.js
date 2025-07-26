@@ -179,8 +179,7 @@ const seed = async () => {
         // === Medications ===
         const medications = [];
         for (let i = 0; i < 50; i++) {
-            const prescription =
-                prescriptions[rand(0, prescriptions.length)];
+            const prescription = prescriptions[rand(0, prescriptions.length)];
             const medication = await Medication.create({
                 name: MEDICATION_NAMES[rand(0, MEDICATION_NAMES.length)],
                 dosage: `${rand(1, 5)}mg`,
@@ -235,8 +234,9 @@ const seed = async () => {
     } catch (err) {
         console.error("Seeding failed:", err);
     } finally {
-        await Sequelize.close();
-        console.log("Connection closed.");
+        // await Sequelize.close();
+        // console.log("Connection closed.");
+        console.log("Seeding complete.");
     }
 };
 
