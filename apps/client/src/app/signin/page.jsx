@@ -39,7 +39,7 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const response = await api.post("/user/login", { email, password });
+      const response = await api.post("/auth/login", { email, password });
 
       if (response.status === 200) {
         const userData = response.data.data;
