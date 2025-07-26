@@ -36,6 +36,7 @@ export default function createApp() {
     apiV1Router.use("/file", authHandler, fileRouter);
     apiV1Router.use("/appointment", authHandler, appointmentRouter);
     apiV1Router.use("/doctor", authHandler, doctorRouter);
+    apiV1Router.use("/prescription", authHandler, prescriptionRouter);
 
     app.use("/api/v1", apiV1Router);
     return app;
