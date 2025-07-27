@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="bg-white text-gray-800 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gray-900 text-white py-5 px-8 flex justify-between items-center">
+      <div class="text-xl font-bold">Exam AI</div>
+      <nav class="space-x-6 text-sm">
+        <a href="/" class="hover:text-pink-300">Home</a>
+        <a href="./logout" class="hover:text-pink-300">Logout</a>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col-reverse md:flex-row items-center justify-between px-8 md:px-20 py-20 md:py-32 bg-gradient-to-br from-purple-100 to-pink-100 gap-y-16 gap-x-16">
+      <!-- Left Content -->
+      <div class="max-w-xl text-center md:text-left">
+        <h1 class="text-xl md:text-6xl font-bold mb-8">
+          Welcome to <br /><span class="text-indigo-600">Exam AI</span><br />
+          Your Smart Study Sidekick!
+        </h1>
+        <p class="text-xl text-gray-700 mb-8">A platform that makes learning and teaching exceptionally effective.</p>
+
+        <!-- Buttons -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-6 mt-8">
+          <a href="./pyq" class="bg-blue-200 hover:bg-blue-300 text-blue-900 font-medium py-3 px-5 rounded-full shadow transition">
+            PYQ
+          </a>
+        <a href="/chatbot" class="bg-green-200 hover:bg-green-300 text-green-900 font-medium py-3 px-5 rounded-full shadow transition">
+          Padbot
+        </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" class="bg-pink-200 hover:bg-pink-300 text-pink-900 font-medium py-3 px-5 rounded-full shadow transition">
+            YouTube
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Visual Section -->
+      <div class="relative w-full md:w-auto flex justify-center items-center">
+        <!-- Central Image -->
+        <img
+          src="https://th.bing.com/th/id/OIP.PRczlivYH5uCA-IgMD2AcgHaFW?w=235&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+          alt="Student"
+          class="w-80 h-80 md:w-[28rem] md:h-[28rem] rounded-full shadow-lg z-10"
+        />
+
+        <!-- Decorative Circles -->
+        <div class="absolute w-14 h-14 bg-purple-200 rounded-full top-0 left-0"></div>
+        <div class="absolute w-12 h-12 bg-pink-200 rounded-full top-10 right-0"></div>
+        <div class="absolute w-10 h-10 bg-yellow-200 rounded-full bottom-0 left-6"></div>
+        <div class="absolute w-12 h-12 bg-green-200 rounded-full bottom-6 right-8"></div>
+      </div>
+    </section>
+  </div>
+</Layout>

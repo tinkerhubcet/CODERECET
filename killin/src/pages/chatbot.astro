@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ChatbotInterface from '../components/ChatbotInterface.svelte';
+---
+
+<Layout title="Chatbot Interface">
+    <main class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+        <div class="relative flex flex-col w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden h-[90vh] md:h-[80vh]">
+            <!-- The entire chatbot interface is now handled by ChatbotInterface.svelte -->
+            <ChatbotInterface client:load />
+        </div>
+    </main>
+</Layout>
+
+<!-- Removed the global style block from here -->

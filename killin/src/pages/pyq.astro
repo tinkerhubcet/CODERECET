@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PYQViewer from '../components/PYQViewer.svelte';
+---
+
+<Layout>
+  <header class="bg-gray-900 text-white py-4 px-8 flex justify-between items-center">
+      <div class="text-xl font-bold">Exam AI</div>
+      <nav class="space-x-6 text-sm">
+        <a href="./exam" class="hover:text-pink-300">Home</a>
+         <a href="./logout" class="hover:text-pink-300">Logout</a>
+      </nav>
+    </header>
+  <div class="max-w-6xl mx-auto px-4 py-10">
+    <PYQViewer client:load />
+  </div>
+</Layout>
