@@ -26,10 +26,10 @@ support reduces their independence and increases caregiver burden.
 
 ## For Software:
 
-[Languages used] - JavaScript
-[Frameworks used] - NextJS
-[Libraries used] - PostgreSQL, Shadcn
-[Tools used] - n8n, Bolt, Docker, Vercel, AWS EC2
+- JavaScript
+- NextJS
+- PostgreSQL, Shadcn
+- n8n, Bolt, Docker, Vercel, AWS EC2
 
 ## For Hardware:
 
@@ -58,6 +58,14 @@ The project is comprised of three distinct integrated components:
 ### Project Documentation
 
 ### Screenshots (Add at least 3)
+
+![WhatsApp Image 2025-07-27 at 07 46 22](https://github.com/user-attachments/assets/594765dd-81bc-4577-bb43-365d9bff2bd5)
+![WhatsApp Image 2025-07-27 at 07 46 21 (1)](https://github.com/user-attachments/assets/54ec19a7-6278-4940-b353-f388c0e9dae0)
+![WhatsApp Image 2025-07-27 at 07 46 21](https://github.com/user-attachments/assets/e0028724-9342-460e-a289-48fd0736d139)
+
+n8n Workflow and Agent
+<img width="1919" height="746" alt="image" src="https://github.com/user-attachments/assets/84f59ef2-1c00-4521-904b-045285dea2a8" />
+
 
 ### Diagrams
 
