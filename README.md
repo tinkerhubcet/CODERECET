@@ -1,4 +1,4 @@
-![IMG20250727063053](https://github.com/user-attachments/assets/e1933c74-3160-41e1-802d-8aacdbed5e30)# CODERECET
+# CODERECET
 
 ## Project Repository
 *Commit and save your changes here*
