@@ -92,15 +92,15 @@ npm run dev
 
 ### Screenshots (Add at least 3)
 
-1. ![Dashboard](dashboard.png)  
-   *Caption: Main dashboard allowing users to choose between "Boost My Grades" (XMAI) or "Build My Career" (Navigator).*
+![Dashboard](dashboard.png)  
+*Caption: Main dashboard allowing users to choose between "Boost My Grades" (XMAI) or "Build My Career" (Navigator).*
 
-2. ![PYQ Solver](pyq_solver.png)
-3. ![PYQ Solver1](pyq2.png)
-4. ![PYQ Solver](padbot.png)  
+![PYQ Solver](pyq solver.png)
+![PYQ Solver1](pyq2.png)
+![PYQ Solver](padbot.png)  
    *Caption: User uploads a PDF of previous year questions and receives step-by-step AI-generated solutions.*
 
-5. ![Career Analysis Result](career.png)  
+![Career Analysis Result](career.png)  
    *Caption: Gemini AI analyzing resume + GitHub and generating skill gap and career roadmap.*
 
 ---
