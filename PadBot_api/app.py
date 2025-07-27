@@ -1,5 +1,5 @@
-from flask_cors import CORS
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import fitz  # PyMuPDF
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
@@ -15,15 +15,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["*"])
+
+
 
 # Load API Keys
-TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY") 
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Gemini setup
 genai.configure(api_key=GEMINI_API_KEY)
-gemini_model = genai.GenerativeModel("gemini-pro")
+gemini_model = genai.GenerativeModel("gemini-2.5-flash")
 
 if not TOGETHER_API_KEY:
     raise Exception("TOGETHER_AI_API_KEY not found in environment variables.")
@@ -148,7 +150,7 @@ def ask_question():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route("/submit_preferences", methods=["POST"])
+@app.route('/submit_preferences', methods=['POST'])
 def submit_preferences():
     try:
         role = request.form.get("role", "").strip()
@@ -156,19 +158,32 @@ def submit_preferences():
         github_link = request.form.get("githubLink", "").strip()
         resume_file = request.files.get("resumeFile")
 
+        # ✅ Field validation
         if not (role and company and github_link and resume_file):
+            print("❌ Missing fields:", role, company, github_link, resume_file)
             return jsonify({"error": "Missing required fields"}), 400
 
-        resume_text = extract_pdf_text(resume_file.read())
+        # ✅ Debug info
+        print(f"\n📥 Received Submission:")
+        print(f"  - 📄 Resume: {resume_file.filename} ({resume_file.content_type})")
+        print(f"  - 🎯 Role: {role}")
+        print(f"  - 🏢 Company: {company}")
+        print(f"  - 🐙 GitHub: {github_link}\n")
+
+        # ✅ Process data
+        pdf_text = extract_pdf_text(resume_file.read())
         github_summary = fetch_github_summary(github_link)
-        gemini_analysis = analyze_with_gemini(resume_text, github_summary, role)
+        gemini_analysis = analyze_with_gemini(pdf_text, github_summary, role)
+
+        print(f"✅ Gemini Analysis:\n{gemini_analysis}\n")
 
         return jsonify({
             "message": "Analysis complete!",
             "analysis": gemini_analysis
         }), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
+    except Exception as e:
+        return jsonify({"error": f"Internal server error: {str(e)}"}), 500
+    
 if __name__ == "__main__":
     app.run(debug=True)

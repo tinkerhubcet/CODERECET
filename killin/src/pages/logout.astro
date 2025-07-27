@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Logoutcomp from '../components/Logoutcomp.svelte';
+---
+
+<Layout title="Logout | Padhik" bodyClass="bg-gray-100">
+  <main class="w-full min-h-screen flex items-center justify-center">
+    <Logoutcomp client:only="svelte" />
+  </main>
+</Layout>
