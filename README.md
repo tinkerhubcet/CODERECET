@@ -1,14 +1,25 @@
 # CODERECET
 
 ## Project Repository
-*Commit and save your changes here*
+https://github.com/devananda6200/CODERECET-ByteWizards
 
 ### Team Name :
+ByteWizards
+
 ### Team Members :
+- Deva Nanda Nair  
+- Swathi H Nair 
+- Shreya R S 
+
 ### Project Description
-.
-.
-.
+**Project Padhik (പഥികൻ)** is a dual-purpose AI-powered student ecosystem designed specifically for the educational and employment challenges faced by students in Kerala. It consists of two integrated pillars:
+
+1. **Academic Accelerator (EXAM AI Wing)** – helps students boost CGPA and ace university exams using AI-driven PYQ solving, smart note analysis, and curated YouTube learning playlists.
+2. **Career Navigator (Original Padhik)** – analyzes resumes and GitHub profiles to identify skill gaps and suggests personalized learning paths and hyper-local job opportunities.
+
+It empowers students from their **first semester to their first job**—making Padhik the ultimate Kerala student companion.
+
+---
 
 ## Technical Details
 
@@ -16,54 +27,109 @@
 
 ## For Software:
 
-[Languages used]
-[Frameworks used]
-[Libraries used]
-[Tools used]
+**Languages used:**
+- Python  
+- JavaScript  
+- HTML/CSS  
 
-## For Hardware:
+**Frameworks used:**
+- Flask (Backend)  
+- Svelte + Astro + Tailwind CSS (Frontend)  
 
-[List main components]
-[List specifications]
-[List tools required]
+**Libraries used:**
+- LangChain  
+- Together.ai  
+- Google Generative AI (Gemini)  
+- PyMuPDF (fitz)  
+- Chroma (Vector Store)  
+- SymPy (Math solver)  
+- dotenv  
+- Flask-CORS  
+- Requests  
+
+**Tools used:**
+- GitHub  
+- VS Code  
+- Postman  
+- Gamma for Deck  
+- Figma (UI mockups)  
+- YouTube Data API  
+- LinkedIn API (planned)
+
+---
+
+[List specifications]  
+- Runs on any machine with Python 3.10+  
+- Tested on Google Colab, local Ubuntu 22.04, and Windows 10  
+
+[List tools required]  
+- Python + pip  
+- .env file for API keys  
+
+---
 
 ## Implementation
 
 ## For Software:
 
 ### Installation
-[commands]
+```bash
+git clone https://github.com/devananda6200/CODERECET-ByteWizards
+cd CODERECET-ByteWizards
+python -m venv env
+source env/bin/activate  # for Linux/macOS
+# or
+env\Scripts\activate  # for Windows
 
-### Run
-[commands]
-
-### Project Documentation
+pip install -r requirements.txt
+# Add your .env file with GEMINI_API_KEY and TOGETHER_API_KEY
+python app.py
+# Then open the frontend (Svelte project)
+cd frontend
+npm install
+npm run dev
+```
 
 ### Screenshots (Add at least 3)
 
+1. ![Dashboard - Choose Your Path](https://via.placeholder.com/800x450.png?text=Dashboard+View)  
+   *Caption: Main dashboard allowing users to choose between "Boost My Grades" (XMAI) or "Build My Career" (Navigator).*
+
+2. ![PYQ Solver](https://via.placeholder.com/800x450.png?text=PYQ+Solver+Interface)  
+   *Caption: User uploads a PDF of previous year questions and receives step-by-step AI-generated solutions.*
+
+3. ![Career Analysis Result](https://via.placeholder.com/800x450.png?text=Career+Insights+from+Gemini)  
+   *Caption: Gemini AI analyzing resume + GitHub and generating skill gap and career roadmap.*
+
+---
+
 ### Diagrams
-Workflow(Add your workflow/architecture diagram here) Add caption explaining your workflow
 
-## For Hardware:
+#### Workflow (Architecture Diagram)
 
-### Schematic & Circuit
-Circuit(Add your circuit diagram here) Add caption explaining connections
-Schematic(Add your schematic diagram here) Add caption explaining the schematic
+![Workflow Architecture](https://via.placeholder.com/800x450.png?text=Workflow+Diagram+Coming+Soon)  
 
-### Build Photos
-Components(Add photo of your components here) List out all components shown
-Build(Add photos of build process here) Explain the build steps
-Final(Add photo of final product here) Explain the final build
+
 
 ### Project Demo
 
 ### Video
-[Add your demo video link here] Explain what the video demonstrates
 
-## Additional Demos
-[Add any extra demo materials/links]
+[https://youtu.be/sample-demo-link](https://youtu.be/sample-demo-link)  
+
 
 ## Team Contributions
-[Name 1]: [Specific contributions]
-[Name 2]: [Specific contributions]
-[Name 3]: [Specific contributions]
+
+**Deva Nanda Nair:**    
+- Core backend logic and integration with Together AI
+- Flask endpoints and Gemini integration
+
+**Shreya R S:**  
+- Career Navigator logic 
+- EXAM AI  Wing Setup
+
+**Swathi H Nair:**  
+- Frontend design and implementation (Svelte, Astro, Tailwind)  
+ 
+
+
