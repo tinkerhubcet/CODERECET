@@ -117,7 +117,7 @@ npm run dev
 
 ### Video
 
-[https://youtu.be/sample-demo-link](https://youtu.be/sample-demo-link)  
+[https://youtu.be/sample-demo-link](https://youtube.com/shorts/78PsVvvoW5Y?feature=share)  
 
 
 ## Team Contributions
